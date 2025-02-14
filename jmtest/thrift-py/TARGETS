@@ -1,0 +1,22 @@
+load("@fbcode_macros//build_defs:python_library.bzl", "python_library")
+load("@fbcode_macros//build_defs:thrift_library.bzl", "thrift_library")
+
+thrift_library(
+    name = "add",
+    languages = [
+        "cpp2",
+    ],
+    thrift_srcs = {
+        "add.thrift": ["AddService"],
+    },
+)
+
+python_library(
+    name = "setup",
+    srcs = ["setup.py"],
+    labels = ["autodeps2_generated"],
+    deps = [
+        "fbsource//third-party/pypi/cython:cython",
+        "fbsource//third-party/pypi/setuptools:setuptools",
+    ],
+)

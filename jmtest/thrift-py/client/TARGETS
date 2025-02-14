@@ -1,0 +1,23 @@
+load("@fbcode_macros//build_defs:cpp_binary.bzl", "cpp_binary")
+
+oncall("fill this in with your oncall shortname @nocommit")
+
+cpp_binary(
+    name = "test_client",
+    srcs = ["TestClient.cpp"],
+    deps = [
+        "//folly:network_address",
+        "//folly/coro:blocking_wait",
+        "//folly/coro:collect",
+        "//folly/coro:task",
+        "//folly/executors:global_executor",
+        "//folly/init:init",
+        "//folly/io/async:async_socket",
+        "//scripts/jmswen/thrift-py:add-cpp2-clients",
+        "//thrift/lib/cpp2/async:pooled_request_channel",
+        "//thrift/lib/cpp2/async:rocket_client_channel",
+    ],
+    external_deps = [
+        "glog",
+    ],
+)
