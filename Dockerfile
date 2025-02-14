@@ -20,7 +20,6 @@ RUN dnf install -y \
 RUN dnf install -y \
     clang15 \
     llvm15-devel
-#    llvm-toolset
 
 RUN ln -s /usr/bin/clang-15 /usr/bin/clang
 RUN ln -s /usr/bin/clang++-15 /usr/bin/clang++
@@ -115,11 +114,11 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 RUN rustc --version
 
 
-# Clone the fbthrift Git project
-RUN git clone https://github.com/xli/fbthrift.git
+# Clone the jmtest Git project
+RUN git clone https://github.com/xli/jmtest.git
 
 # Change into the cloned repository
-WORKDIR /app/fbthrift
+WORKDIR /app/jmtest
 
 # Install
 RUN make env install jmtest

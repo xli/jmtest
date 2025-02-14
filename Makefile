@@ -47,8 +47,8 @@ build:
 		2>&1 | tee /var/log/build_$(target).log
 
 dock:
-	docker build --no-cache -t centos .
-	docker run -it centos
+	docker build --no-cache -t jmtest .
+	docker run -it jmtest
 
 
 jmtest:
